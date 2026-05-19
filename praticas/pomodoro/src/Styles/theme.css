@@ -1,0 +1,138 @@
+/* Fonte moderna */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* =========================
+   🇧🇷 TEMA BRASIL — DARK
+========================= */
+
+:root {
+  /* Neutros */
+  --gray-100: #f8faf8;
+  --gray-200: #dfe7e2;
+  --gray-300: #bcc8c0;
+  --gray-400: #8ca095;
+  --gray-500: #64766d;
+  --gray-600: #46554d;
+  --gray-700: #25332c;
+  --gray-800: #132019;
+  --gray-900: #09110d;
+
+  /* Superfícies */
+  --surface-primary: rgba(19, 32, 25, 0.92);
+  --surface-secondary: #09110d;
+
+  /* Bordas */
+  --border-default: rgba(255, 223, 0, 0.12);
+  --border-strong: rgba(255, 223, 0, 0.22);
+
+  /* 🇧🇷 Primária */
+  --primary-light: #24c768;
+  --primary: #009c3b;
+  --primary-dark: #006b2a;
+
+  /* 🇧🇷 Secundária */
+  --secondary: #ffdf00;
+  --secondary-dark: #d4b800;
+
+  /* Gradiente */
+  --gradient-primary: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--primary-light)
+  );
+
+  /* Links */
+  --link-color: #ffe45c;
+  --link-hover: #fff3a3;
+
+  /* Estados */
+  --success: #22c55e;
+  --warning: #ffdf00;
+  --error: #ef4444;
+  --info: #3b82f6;
+
+  /* Texto */
+  --text-default: #f5f7f6;
+  --text-muted: #a7b6ae;
+
+  --text-over-primary: #ffffff;
+  --text-over-primary-dark: #d7ffe6;
+  --text-over-primary-light: #08140f;
+
+  --text-over-success: #052e16;
+  --text-over-warning: #2b2200;
+  --text-over-error: #ffffff;
+  --text-over-info: #eff6ff;
+
+  /* Desabilitado */
+  --disabled: #1c2822;
+  --text-disabled: #5f7267;
+
+  /* Focus */
+  --focus-ring: rgba(255, 223, 0, 0.16);
+
+  /* Sombras */
+  --shadow-sm:
+    0 4px 10px rgba(0, 0, 0, 0.2);
+
+  --shadow-md:
+    0 10px 28px rgba(0, 0, 0, 0.35);
+
+  --shadow-lg:
+    0 24px 48px rgba(0, 0, 0, 0.45);
+
+  /* 🔔 Toastify */
+  --toastify-color-light: var(--surface-primary);
+  --toastify-color-dark: var(--surface-primary);
+
+  --toastify-color-info: var(--info);
+  --toastify-color-success: var(--success);
+  --toastify-color-warning: var(--warning);
+  --toastify-color-error: var(--error);
+
+  --toastify-text-color-light: #08140f;
+  --toastify-text-color-dark: var(--text-default);
+
+  --toastify-color-progress-light: var(--primary);
+  --toastify-color-progress-dark: var(--primary);
+}
+
+/* =========================
+   ☀️ TEMA BRASIL — LIGHT
+========================= */
+
+:root[data-theme='light'] {
+  /* Neutros */
+  --gray-100: #0b1a12;
+  --gray-200: #183225;
+  --gray-300: #29503d;
+  --gray-400: #3f6d55;
+  --gray-500: #5f8b73;
+  --gray-600: #8ca795;
+  --gray-700: #d8e4dc;
+  --gray-800: #eef4f0;
+  --gray-900: #f8fbf9;
+
+  /* Superfícies */
+  --surface-primary: #ffffff;
+  --surface-secondary: #f5f9f6;
+
+  /* Bordas */
+  --border-default: rgba(0, 156, 59, 0.12);
+  --border-strong: rgba(0, 156, 59, 0.22);
+
+  /* Texto */
+  --text-default: #102117;
+  --text-muted: #4e6357;
+
+  /* Links */
+  --link-color: #008c35;
+  --link-hover: #006b2a;
+
+  /* Focus */
+  --focus-ring: rgba(255, 223, 0, 0.22);
+
+  /* Toastify */
+  --toastify-text-color-light: var(--text-default);
+  --toastify-text-color-dark: var(--text-default);
+}
