@@ -1,43 +1,21 @@
 import { Router } from 'express';
 import { prisma } from '../lib/prisma.js';
 export const tasksRouter = Router();
-function serializeTask(task) {
-    if (!task)
-        return task;
-    return {
-        ...task,
-        startDate: task.startDate?.toString(),
-        completeDate: task.completeDate?.toString() ?? null,
-        interruptDate: task.interruptDate?.toString() ?? null,
-    };
-}
 tasksRouter.get('/', async (_req, res) => {
     const tasks = await prisma.task.findMany({
         orderBy: { startDate: 'desc' },
     });
-    return res.json(tasks.map(serializeTask));
+    return res.json(tasks);
 });
 tasksRouter.post('/', async (req, res) => {
     const { id, name, duration, type, startDate } = req.body;
-    if (!id ||
-        !name ||
-        !type ||
-        !Number.isInteger(duration) ||
-        !Number.isInteger(startDate)) {
-        return res.status(400).json({
-            message: 'Payload inválido para criação de task',
-        });
+    if (!id || !name || !Number.isInteger(duration) || !Number.isInteger(startDate)) {
+        return res.status(400).json({ message: 'Payload inválido para criação de task' });
     }
     const task = await prisma.task.create({
-        data: {
-            id,
-            name,
-            duration,
-            type,
-            startDate: BigInt(startDate),
-        },
+        data: { id, name, duration, type, startDate: BigInt(startDate) },
     });
-    return res.status(201).json(serializeTask(task));
+    return res.status(201).json(task);
 });
 tasksRouter.patch('/:id/complete', async (req, res) => {
     const { id } = req.params;
@@ -49,7 +27,7 @@ tasksRouter.patch('/:id/complete', async (req, res) => {
         where: { id },
         data: { completeDate: BigInt(completeDate) },
     });
-    return res.json(serializeTask(task));
+    return res.json(task);
 });
 tasksRouter.patch('/:id/interrupt', async (req, res) => {
     const { id } = req.params;
@@ -61,7 +39,7 @@ tasksRouter.patch('/:id/interrupt', async (req, res) => {
         where: { id },
         data: { interruptDate: BigInt(interruptDate) },
     });
-    return res.json(serializeTask(task));
+    return res.json(task);
 });
 tasksRouter.delete('/', async (_req, res) => {
     await prisma.task.deleteMany();
